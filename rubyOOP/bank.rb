@@ -3,12 +3,13 @@
 class BankAccount
   attr_reader :account_number, :checking, :saving
 
-  @@number_of_accounts
+  @@number_of_accounts= 0
+
   def initialize
-    @account_number = generated_account
-    @@number_of_accounts +=1
+    @account_number = create_account
     @checking = 0
     @saving = 0
+    @@number_of_accounts +=1
     @interest_rate = 0.01
   end
 
@@ -22,6 +23,8 @@ class BankAccount
       else
         @saving += amount
       end
+    end
+
     def withdrawal amount, account
       if account.downcase == "checking"
         if @checking = amount < 0
@@ -36,6 +39,7 @@ class BankAccount
           @saving -= amount
         end
       end
+    end
 
       def self.total_accounts
         @@number_of_accounts
@@ -46,8 +50,11 @@ class BankAccount
       end
 
       private
-        def generated_account
-          account = 10.times.map{Random.rand(1..9)}.join
-          puts account
+        def create_account
+          Array.new(10).map { rand(1..9) }.join
         end
-    
+      end
+
+b= BankAccount.new
+puts b.account_information
+puts b.balance
