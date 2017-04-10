@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="jumbotron">
+    <% if flash[:success] %>
+    		<div id="success">
+    			<p><%= flash[:success] %></p>
+  		</div>
+  	<% end %>
+    <h1>Submitted Information</h1>
+    <p>Name: <%= @result['name'] %></p>
+    <p>Dojo Location: <%= @result['location'] %></p>
+    <p>Favorite Language: <%= @result['language'] %></p>
+    <p>Comment: <%= @result['comments'] %></p>
+  <a href="/">Return to the Main Menu</a>
+  
+  </div>
+
+
+
+</div>

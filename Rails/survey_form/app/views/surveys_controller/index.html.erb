@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Survey Form</h1>
+
+    <form class="" action="/submit" method="post">
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+      Name:
+      <input type="text" name="survey[name]" value=""><br>
+      <div class="dropdown">
+        Dojo Location:
+
+        <select name= 'survey[location]' class='select'>
+          <option >Mountain View</option>
+          <option >Seattle</option>
+          <option >Japan</option>
+          <option >Hawaii</option>
+        </select>
+      </div>
+      <br>
+      <div class="dropdown">
+        Favorite Language:
+        <select name= 'survey[language]' class='select'>
+          <option >Python</option>
+          <option >Java</option>
+          <option >Ruby</option>
+          <option >JavaScript</option>
+        </select>
+      </div>
+      Comment(optional):
+      <textarea name="survey[comments]" rows="8" cols="80"></textarea><br>
+      <input type="submit" value="Submit">
+
+    </form>
+
+  </div>
+
+</div>
