@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <h2>Current gold:
+        <%= @gold %></h2>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3">
+        <p>Farm:</p>
+        <p>(earn 10-20 golds)</p>
+        <form action="/farm" method="post">
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+          <button type="submit" class="btn btn-primary">find gold</button>
+        </form>
+      </div>
+      <div class="col-xs-3">
+        <form action="/cave" method="post">
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+          <p>Cave:</p>
+          <p>(earn 5-10 golds)</p>
+          <button type="submit" class="btn btn-primary">find gold</button>
+        </form>
+      </div>
+      <div class="col-xs-3">
+        <p>House:</p>
+        <p>(earn 2-5 golds)</p>
+        <form action="/house" method="post">
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+          <button type="submit" class="btn btn-primary">find gold</button>
+        </form>
+      </div>
+      <div class="col-xs-3">
+        <p>Casino:</p>
+        <p>(earn/lose 0-50 golds)</p>
+        <form action="/casino" method="post">
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+          <button type="submit" class="btn btn-primary">find gold</button>
+        </form>
+      </div>
+
+    </div>
+    <h3>Activities:</h3>
+    <div class="row" style="border: 3px solid black; height: 200px; overflow: scroll">
+
+      <% @activity.each do |result| %>
+      <% if result['won'] == true %>
+      <p style="color: green">
+        <%= result["sentence"] %>
+      </p>
+    <% else %>
+      <p style="color: red">
+        <%= result["sentence"] %>
+      </p>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
