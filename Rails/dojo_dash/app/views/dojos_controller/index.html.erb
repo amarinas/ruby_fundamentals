@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Listing <%= @dojos.count %> Dojo</h1>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Coding Dojo Branch</th>
+          <th>Street</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Actions</th>
+        </tr>
+
+      </thead>
+      <tbody >
+        <% @dojos.each do |all| %>
+        <tr>
+          <td><%= all.branch %></td>
+          <td><%= all.street %></td>
+          <td><%= all.city %></td>
+          <td><%= all.state %></td>
+          <td><a href= "/dojos/<%= all.id %>">Show</a> | <a href= "/dojos/<%= all.id %>/edit">Edit</a> |
+
+          <form class="" action="/dojos/<%= all.id %>/delete" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input type="submit" value="Destroy">
+          </form></td>
+
+        </tr>
+
+      </tbody>
+      <% end %>
+    </table>
+    <p><%= flash[:notice] %></p>
+    <p><%= flash[:success] %></p>
+
+
+    <a href="/dojos/new" ><b>New Dojo</b></a>
+
+  </div>
+
+</div>

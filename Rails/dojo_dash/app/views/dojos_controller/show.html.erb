@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1><%= @show.branch %> Dojo</h1>
+    Address:<h3><%= @show.street %></h3>
+    City: <h3><%= @show.city %></h3> State: <h3><%= @show.state %></h3>
+  </div>
+  <a href="/">Home</a> |
+  <a href="/dojos/<%= @show.id %>/edit">Edit</a>
+
+</div>
