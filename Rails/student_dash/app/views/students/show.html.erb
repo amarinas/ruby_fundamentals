@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="jumbotron">
+  <h2><%= @dojo.branch %>'s <%= @students.first_name %> <%= @students.last_name %> </h2>
+    <h4>Email: <%= @students.email %></h4>
+
+    <% if flash[:errors] %>
+    <div>
+      <p><%= flash[:errors] %></p>
+    </div>
+    <% end %>
+  <h3>Cohort </h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+
+      </tr>
+
+    </thead>
+    <tbody >
+
+      <% @cohort.each do |all| %>
+      <% if @students.id != all.id  && @dojo.id == all.dojo_id %>
+      <tr>
+        <td><%= all.first_name %></td>
+        <td><%= all.last_name %></td>
+        <td><%= all.email %></td>
+    </tbody>
+    <% end %>
+    <% end %>
+
+  </table>
+
+  <a href="/">Home </a> | <a href="/dojos/<%= @dojo.id %>/students/<%= @students.id %>/edit">Edit</a>
+
+
+</div>
+</div>
